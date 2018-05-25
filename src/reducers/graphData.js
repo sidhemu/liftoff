@@ -19,9 +19,11 @@ const graphData = (state = [], action) => {
       });
       state[0]["value"] = correctCount;
       state[1]["value"] = incorrectCount;
-      return state;
-    case "UPDATE_GRAPH":
-      return state;
+      return [...state];
+    case "CLEAR_ALL":
+      state[0].value = 0;
+      state[1].value = 0;
+      return [...state];
     default:
       return state;
   }

@@ -2,7 +2,9 @@ import React, { Component } from "react";
 import { ButtonToolbar, Button } from "react-bootstrap";
 import { connect } from "react-redux";
 
-import { graphData, updateData } from "../../actions";
+import Graph from "../graph/Graph";
+
+import { graphData, clearData } from "../../actions";
 
 import QuestionBox from "./QuestionBox";
 
@@ -12,30 +14,30 @@ class Question extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      clearData: ""
+      value: "",
+      reset: false,
+      graphData: []
     };
     this.clearValues = this.clearValues.bind(this);
     this.submitSolution = this.submitSolution.bind(this);
   }
 
   clearValues(e) {
-    // console.log(e);
-    this.setState({ clearData: null });
+    this.setState({ value: "", reset: true });
+    this.props.clearData();
   }
 
   submitSolution() {
     if (Object.keys(this.props.solution).length < 4) {
       alert("Please answer all questions");
     } else {
-      // console.log("submitting solution ", this.props.solution);
       this.props.graphData(this.props.solution);
-      this.props.updateData();
     }
   }
 
   render() {
     return (
-      <div>
+      <div className="main-container">
         <div className="question-container">
           <div className="question-text">
             {this.props.questions.map((ques, index) => {
@@ -44,7 +46,6 @@ class Question extends Component {
                   key={index}
                   quesData={ques}
                   questionIndex={index}
-                  clearData={this.state.clearData}
                 />
               );
             })}
@@ -56,6 +57,9 @@ class Question extends Component {
             </ButtonToolbar>
           </div>
         </div>
+        <div className="graph-container">
+          <Graph />
+        </div>
       </div>
     );
   }
@@ -65,4 +69,4 @@ function mapStateToProps(state, dispa) {
   return state;
 }
 
-export default connect(mapStateToProps, { graphData, updateData })(Question);
+export default connect(mapStateToProps, { graphData, clearData })(Question);

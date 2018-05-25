@@ -3,6 +3,8 @@ const solution = (state = [], action) => {
     case "SOLUTION_LIST":
       state = { ...state, [action.qId]: action.sId };
       return state;
+    case "CLEAR_ALL":
+      return {};
     default:
       return state;
   }

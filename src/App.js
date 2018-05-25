@@ -3,7 +3,6 @@ import React, { Component } from "react";
 import "./App.css";
 
 import Question from "./components/questions/Question";
-import Graph from "./components/graph/Graph";
 
 class App extends Component {
   render() {
@@ -16,9 +15,6 @@ class App extends Component {
         <div className="container">
           <div className="question-section">
             <Question />
-          </div>
-          <div className="graph-section">
-            <Graph />
           </div>
         </div>
       </div>

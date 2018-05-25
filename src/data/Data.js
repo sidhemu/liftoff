@@ -3,7 +3,6 @@ const questionData = {
     {
       id: 1,
       question: "When was the last time India won the cricket world cup?",
-      answer: 104,
       options: [
         {
           id: 101,
@@ -27,7 +26,6 @@ const questionData = {
       id: 2,
       question:
         "What is the heighest individual score by a batsman in Test Cricket?",
-      answer: 202,
       options: [
         {
           id: 201,
@@ -50,7 +48,6 @@ const questionData = {
     {
       id: 3,
       question: "Who has the most number of Cricket World Cups?",
-      answer: 304,
       options: [
         {
           id: 301,
@@ -74,7 +71,6 @@ const questionData = {
       id: 4,
       question:
         "How many International centuries does Sachin Tendulkar has under his name?",
-      answer: 401,
       options: [
         {
           id: 401,

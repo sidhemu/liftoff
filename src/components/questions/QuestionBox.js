@@ -6,10 +6,19 @@ import { solution } from "../../actions";
 import OptionComponent from "./Option";
 
 class QuestionBox extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      reset: false
+    };
+    this.onPickAnswer = this.onPickAnswer.bind(this);
+  }
   onPickAnswer(e) {
-    // console.log("anwser ", this.props.questionIndex, this.inputEl.value);
     this.props.solution(this.props.questionIndex, this.inputEl.value);
   }
+
+  compo;
+
   render() {
     return (
       <Panel>
@@ -19,7 +28,7 @@ class QuestionBox extends Component {
             <FormGroup controlId="formControlsSelect">
               <ControlLabel>Select Answer</ControlLabel>
               <FormControl
-                onChange={this.onPickAnswer.bind(this)}
+                onChange={this.onPickAnswer}
                 inputRef={el => (this.inputEl = el)}
                 componentClass="select"
                 placeholder="Select Answer"
@@ -31,7 +40,6 @@ class QuestionBox extends Component {
                       key={index}
                       questionIndex={index}
                       optionValue={opt}
-                      value={this.props.clearData}
                     />
                   );
                 })}

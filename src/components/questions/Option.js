@@ -8,9 +8,7 @@ class OptionComponent extends Component {
 
   render() {
     return (
-      <option
-        value={this.props.value !== null ? this.props.optionValue.id : null}
-      >
+      <option value={this.props.optionValue.id}>
         {this.props.optionValue.ans}
       </option>
     );

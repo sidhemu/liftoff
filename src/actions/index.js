@@ -13,6 +13,6 @@ export const graphData = data => ({
   userSolution: data
 });
 
-export const updateData = () => ({
-  type: "UPDATE_GRAPH"
+export const clearData = () => ({
+  type: "CLEAR_ALL"
 });
